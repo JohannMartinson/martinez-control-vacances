@@ -15,15 +15,11 @@ Nom com a cadena
 
 Cognom coma cadena
 
-Data d'incorporació com a Date
+Anys a l'empresa com a número
 
 Departament com a cadena
 
-Data actual com a Date
-
-Diferència dates com a número
-
 Constants per cada nivell d'antinguitat 
-que guarden els valors dels dies de vacances.
+que guarden els valors dels dies de vacances a gaudir.
 
 ### Disseny

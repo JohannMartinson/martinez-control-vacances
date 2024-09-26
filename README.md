@@ -5,7 +5,7 @@ Branca martinez-analisis-diseny.
 Hem de fer un programa que segons l'antiguitat i el departament de l'empleat ens retorni quants dies de vacances té.
 
 ### Dades d'entrada
-Nom, cognom, data d'incorporació a l'empresa, departament.
+Nom, cognom, danys a l'empresa, departament.
 
 ### Dades de sortida
 Dies que l'empleat te de vacances.

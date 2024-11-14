@@ -24,15 +24,14 @@
         private JRadioButton jRadioButton1;
         private JRadioButton jRadioButton2;
         private JRadioButton jRadioButton3;
-        private JRadioButton jRadioAnys1;
-        private JRadioButton jRadioAnys2;
-        private JRadioButton jRadioAnys3;
-        private JRadioButton jRadioAnys4;
-        private JRadioButton jRadioAnys5;
+        private JRadioButton jRadioButton4;
+        private JRadioButton jRadioDepartament1;
+        private JRadioButton jRadioDepartament2;
+        private JRadioButton jRadioDepartament3;
         private JLabel jlTitolApp;
         private JLabel jlNomEmpresa;
-        private String [] departaments = {"Atenció al client", "Logística", "Gerència"};
-
+        private String [] nomsDepartaments = {"Atenció al client", "Logística", "Gerència"};
+        private String [] anys = {"menys de un any", "un any", "de dos a sis anys", "set o més anys"};
 
         public Benvinguda() {
             // Obtenir les dimensions de la pantalla
@@ -65,8 +64,8 @@
             // Crear els components gràfics (camp de text i botó).
             jlEtiquetaNomUsuari = new JLabel("Introdueix el teu nom:");
             jlEtiquetaCognomUsuari = new JLabel("Introdueix el teu cognom:");
-            jlEtiquetaDepartament = new JLabel("Departament");
             jlEtiquetaAnys = new JLabel("Anys a l'empresa");
+            jlEtiquetaDepartament = new JLabel("Departament");
 
             jtfNomUsuari = new JTextField(20);
             jtfCognomUsuari = new JTextField(20);
@@ -80,16 +79,15 @@
             ButtonGroup G2 = new ButtonGroup();
 
             // Iniciar els botons per el departament
-            jRadioButton1 = new JRadioButton(departaments[0]);
-            jRadioButton2 = new JRadioButton(departaments[1]);
-            jRadioButton3 = new JRadioButton(departaments[2]);
+            jRadioButton1 = new JRadioButton(anys[0]);
+            jRadioButton2 = new JRadioButton(anys[1]);
+            jRadioButton3 = new JRadioButton(anys[2]);
+            jRadioButton4 = new JRadioButton(anys[3]);
 
             // Iniciar els botons per l'any
-            jRadioAnys1 = new JRadioButton("Menys de un any");
-            jRadioAnys2 = new JRadioButton("Un any");
-            jRadioAnys3 = new JRadioButton("Dos anys");
-            jRadioAnys4 = new JRadioButton("Tres anys");
-            jRadioAnys5 = new JRadioButton("Més de tres anys");
+            jRadioDepartament1 = new JRadioButton(nomsDepartaments[0]);
+            jRadioDepartament2 = new JRadioButton(nomsDepartaments[1]);
+            jRadioDepartament3 = new JRadioButton(nomsDepartaments[2]);
 
             jlTitolApp = new JLabel("Sistema de Control de Vacances");
             jlNomEmpresa = new JLabel("2024 - Nobody S.A.");
@@ -97,8 +95,8 @@
             // Establir la posició i mida de cada component manualment amb coordenades
             jlEtiquetaNomUsuari.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y, 200, 30);
             jlEtiquetaCognomUsuari.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y+35, 200, 30);
-            jlEtiquetaDepartament.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y+75, 200, 30);
-            jlEtiquetaAnys.setBounds((int) etiqueta_nom_usuari_x+200, (int) etiqueta_nom_usuari_y+75, 200, 30);
+            jlEtiquetaAnys.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y+75, 200, 30);
+            jlEtiquetaDepartament.setBounds((int) etiqueta_nom_usuari_x+200, (int) etiqueta_nom_usuari_y+75, 200, 30);
             jlNomEmpresa.setBounds((int) amplada-20, (int) alssada-10, 200, 30);
             jlTitolApp.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y - 50, 200, 30);
             jtfNomUsuari.setBounds((int) nom_usuari_x, (int) nom_usuari_y, 150, 30);  // (x, y, width, height)
@@ -108,6 +106,7 @@
             jRadioButton1.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y + 100, 200, 30);
             jRadioButton2.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y + 125, 200, 30);
             jRadioButton3.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y + 150, 200, 30);
+            jRadioButton4.setBounds((int) etiqueta_nom_usuari_x, (int) etiqueta_nom_usuari_y + 175, 200, 30);
             //jRadioAnys1.setBounds((int) etiqueta_nom_usuari_x+200, (int) etiqueta_nom_usuari_y + 100, 200, 30);
             //jRadioAnys2.setBounds((int) etiqueta_nom_usuari_x+200, (int) etiqueta_nom_usuari_y + 125, 200, 30);
             //jRadioAnys3.setBounds((int) etiqueta_nom_usuari_x+200, (int) etiqueta_nom_usuari_y + 150, 200, 30);
@@ -117,10 +116,9 @@
 
             add(comboBox);
 
-            comboBox.addItem("menys de un any");
-            comboBox.addItem("un any");
-            comboBox.addItem("de dos a sis anys");
-            comboBox.addItem("set o més anys");
+            comboBox.addItem(nomsDepartaments[0]);
+            comboBox.addItem(nomsDepartaments[1]);
+            comboBox.addItem(nomsDepartaments[2]);
 
             // Afegir els components a la finestra
             add(jlEtiquetaNomUsuari);
@@ -136,34 +134,40 @@
             G.add(jRadioButton1);
             G.add(jRadioButton2);
             G.add(jRadioButton3);
+            G.add(jRadioButton4);
             add(jRadioButton1);
             add(jRadioButton2);
             add(jRadioButton3);
+            add(jRadioButton4);
 
             // Afegir funcionalitat al botó: què passa quan l'usuari fa clic?
             jbEnviar.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
 
-                    String entradaDepartament = "";
+                    String anysTreballats = "";
                     //Obtenir els anys seleccionats en el desplegable
-                    String anysTreballats = (String) comboBox.getSelectedItem();
+                    String entradaDepartament = (String) comboBox.getSelectedItem();
                     //Obtenir el valor introduit en el JFT Nom
                     String nomTreballador = jtfNomUsuari.getText();
+                    //Obtenir el valor introduït en el JFT
+                    String cognom_treballador = jtfCognomUsuari.getText();
 
                     // Obtenir el text que ha introduït l'usuari al camp de text.
                     if (jRadioButton1.isSelected()) {
-                        entradaDepartament = jRadioButton1.getText();
+                        anysTreballats = jRadioButton1.getText();
                         //Comprovació per pantalla que la variable es guarda correctmaent
                         //JOptionPane.showMessageDialog(Benvinguda.this,entradaDepartament);
                     } else if (jRadioButton2.isSelected()) {
-                        entradaDepartament = jRadioButton2.getText();
+                        anysTreballats = jRadioButton2.getText();
                     } else if (jRadioButton3.isSelected()) {
-                        entradaDepartament = jRadioButton3.getText();
+                        anysTreballats = jRadioButton3.getText();
+                    }else if (jRadioButton4.isSelected()) {
+                        anysTreballats = jRadioButton4.getText();
                     }
                     //Comprovar si totes les dades han estat introduides
                     if (anysTreballats!= null && !entradaDepartament.isEmpty() && !nomTreballador.isEmpty())  {
                         // Si l'usuari ha introduït un nom, obrir la finestra "Resultat" amb aquest nom.
-                        new Resultat(nomTreballador, entradaDepartament, anysTreballats);
+                        new Resultat(nomTreballador, cognom_treballador, entradaDepartament, anysTreballats);
                     } else {
                         //Mostrant missatge d'error si falta el nom
                         if(nomTreballador.isEmpty()){

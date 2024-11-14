@@ -1,4 +1,5 @@
 # Branca martinez-control-vacances
+Teniem que pasar per array alguns valors.
 
 # Solució
 En el fitxer Benvinguda.java he vaig fer servir una array de tipus string per guardar tots els departaments.

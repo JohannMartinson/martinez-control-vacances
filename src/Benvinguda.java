@@ -1,6 +1,9 @@
     import javax.swing.*;
     import java.awt.*;
     import java.awt.event.*;
+    import java.io.BufferedReader;
+    import java.io.FileReader;
+    import java.io.IOException;
     import java.util.*;
 
     // Aquesta classe representa la finestra de "Benvinguda" on l'usuari pot introduir el seu nom.
@@ -188,5 +191,18 @@
 
             // Mostrar la finestra.
             setVisible(true);
+        }
+        private String[] carregaDepartaments(String rutaFitxer) {
+            ArrayList<String> departaments = new ArrayList<>();
+            try (BufferedReader br = new BufferedReader(new FileReader(rutaFitxer))) {
+                String linia;
+                while ((linia = br.readLine()) != null) {
+                    departaments.add(linia);
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, "Error al carregar el fitxer de departaments: " + e.getMessage());
+            }
+            System.out.println(departaments.toArray(new String[0]));
+            return departaments.toArray(new String[0]);
         }
     }
